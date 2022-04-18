@@ -109,7 +109,7 @@ This module only works for my admins
     PIKACHUINFO_TXT = """this is pikachu info"""
     MERLINREPLY_TXT = """<b>BRAH!</b>
 <b><i>Do you still have hopes ?. Forget it now. This is not something that will ever happen </b></i>😢"""
-    MERLIN_TXT = """<b>MERLIN SEASON 06 IS NOW AVAILABLE ON STREAMING SITES 🔥 !<b>
+    MERLIN_TXT = """<b>MERLIN SEASON 06 IS NOW AVAILABLE ON STREAMING SITES 🔥 !</b>
 
 <i>You Can Download Merlin S06 From Below Link.</i>
 <b>🔥🔥 DOWNLOAD FAST 🔥🔥</b>"""
