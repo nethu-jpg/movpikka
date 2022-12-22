@@ -1013,19 +1013,8 @@ async def auto_filter(client, msg, spoll=False):
             [InlineKeyboardButton(text="𝖭𝖾𝗐 𝖬𝗈𝗏𝗂𝖾𝗌 & 𝖲𝖾𝗋𝗂𝖾𝗌",url="https://t.me/joinchat/Sc033LjLp6VlNDVl")]
         )
     reply_id = message.reply_to_message.message_id if message.reply_to_message else message.message_id
-    imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
-    TEMPLATE = settings['template']
-    if imdb:
-        cap = f"<b>✅ ᴡᴇ ꜰᴏᴜɴᴅ ɪᴛ 😌❤️ \n\n🎬 Film/Series : {search} \n\n★ ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ ғᴏʀ ɢᴇᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ᴏʀ sᴇʀɪᴇs ғɪʟᴇs \n\n©️ ɪɴғɪɴɪᴛʏ ʙᴏᴛs ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>"
-    else:
-        cap = f"<b>✅ ᴡᴇ ꜰᴏᴜɴᴅ ɪᴛ 😌❤️ \n\n🎬 Film/Series : {search} \n\n★ ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ ғᴏʀ ɢᴇᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ᴏʀ sᴇʀɪᴇs ғɪʟᴇs \n\n©️ ɪɴғɪɴɪᴛʏ ʙᴏᴛs ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>"
-    if imdb and imdb.get('poster'):
-        try:
-            hehe = await message.reply_photo(photo=random.choice(PHO), caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(600)
-            await message.delete(600)
-   else:
-        fuk = await message.reply_photo(photo=random.choice(PHO), caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
+    cap = f"<b>✅ ᴡᴇ ꜰᴏᴜɴᴅ ɪᴛ 😌❤️ \n\n🎬 Film/Series : {search} \n\n★ ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ ғᴏʀ ɢᴇᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ᴏʀ sᴇʀɪᴇs ғɪʟᴇs \n\n©️ ɪɴғɪɴɪᴛʏ ʙᴏᴛs ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>"
+    fuk = await message.reply_photo(photo=random.choice(PHO), caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
         await asyncio.sleep(600)
         await msg.delete(600)
     if spoll:
