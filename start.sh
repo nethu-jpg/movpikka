@@ -4,7 +4,7 @@ then
   git clone https://github.com/nethu-jpg/movpikka.git /movpikka
 else
   echo "Cloning Custom Repo from $UPSTREAM_REPO "
-  git clone $UPSTREAM_REPO /movpikka
+  git clone $UPSTREAM_REPO /EvaMaria
 fi
 cd /EvaMaria
 pip3 install -U -r requirements.txt
