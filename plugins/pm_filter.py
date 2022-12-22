@@ -1016,61 +1016,20 @@ async def auto_filter(client, msg, spoll=False):
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
     if imdb:
-        cap = TEMPLATE.format(
-            query=search,
-            title=imdb['title'],
-            votes=imdb['votes'],
-            aka=imdb["aka"],
-            seasons=imdb["seasons"],
-            box_office=imdb['box_office'],
-            localized_title=imdb['localized_title'],
-            kind=imdb['kind'],
-            imdb_id=imdb["imdb_id"],
-            cast=imdb["cast"],
-            runtime=imdb["runtime"],
-            countries=imdb["countries"],
-            certificates=imdb["certificates"],
-            languages=imdb["languages"],
-            director=imdb["director"],
-            writer=imdb["writer"],
-            producer=imdb["producer"],
-            composer=imdb["composer"],
-            cinematographer=imdb["cinematographer"],
-            music_team=imdb["music_team"],
-            distributors=imdb["distributors"],
-            release_date=imdb['release_date'],
-            year=imdb['year'],
-            genres=imdb['genres'],
-            poster=imdb['poster'],
-            plot=imdb['plot'],
-            rating=imdb['rating'],
-            url=imdb['url'],
-            **locals()
-        )
+        cap = f"<b>✅ ᴡᴇ ꜰᴏᴜɴᴅ ɪᴛ 😌❤️ \n\n🎬 Film/Series : {search} \n\n★ ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ ғᴏʀ ɢᴇᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ᴏʀ sᴇʀɪᴇs ғɪʟᴇs \n\n©️ ɪɴғɪɴɪᴛʏ ʙᴏᴛs ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>"
     else:
-        cap = f"<b>✅ ᴡᴇ ꜰᴏᴜɴᴅ ɪᴛ 😌❤️ \n\n🎬 Film/Series : {search} \n\n★ ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ ғᴏʀ ɢᴇᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ᴏʀ sᴇʀɪᴇs ғɪʟᴇs \n\n<a href='https://t.me/bots_infinity'>©️ ɪɴғɪɴɪᴛʏ ʙᴏᴛs</a> ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>"
+        cap = f"<b>✅ ᴡᴇ ꜰᴏᴜɴᴅ ɪᴛ 😌❤️ \n\n🎬 Film/Series : {search} \n\n★ ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ ғᴏʀ ɢᴇᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ᴏʀ sᴇʀɪᴇs ғɪʟᴇs \n\n©️ ɪɴғɪɴɪᴛʏ ʙᴏᴛs ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>"
     if imdb and imdb.get('poster'):
         try:
-            hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
+            hehe = await message.reply_photo(photo=random.choice(PHO), caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(600)
-            await message.delete()
-        except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
-            pic = imdb.get('poster')
-            poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            hmm = await message.reply_photo(photo=poster, caption=cap[:1024], reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(600)
-            await message.delete()
-        except Exception as e:
-            logger.exception(e)
-            fek = await message.reply_photo(photo=random.choice(PHO), caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(600)
-            await msg.delete()
-    else:
+            await message.delete(600)
+   else:
         fuk = await message.reply_photo(photo=random.choice(PHO), caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
         await asyncio.sleep(600)
-        await msg.delete()
+        await msg.delete(600)
     if spoll:
-        await msg.message.delete()
+        await msg.message.delete(600)
 
 
 async def advantage_spell_chok(msg):
