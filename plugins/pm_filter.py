@@ -1013,12 +1013,21 @@ async def auto_filter(client, msg, spoll=False):
             [InlineKeyboardButton(text="𝖭𝖾𝗐 𝖬𝗈𝗏𝗂𝖾𝗌 & 𝖲𝖾𝗋𝗂𝖾𝗌",url="https://t.me/joinchat/Sc033LjLp6VlNDVl")]
         )
     reply_id = message.reply_to_message.message_id if message.reply_to_message else message.message_id
-    cap = f"<b>✅ ᴡᴇ ꜰᴏᴜɴᴅ ɪᴛ 😌❤️ \n\n🎬 Film/Series : {search} \n\n★ ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ ғᴏʀ ɢᴇᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ᴏʀ sᴇʀɪᴇs ғɪʟᴇs \n\n©️ ɪɴғɪɴɪᴛʏ ʙᴏᴛs ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>"
-    fuk = await message.reply_photo(photo=random.choice(PHO), caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
+    if imdb:
+        cap = f"<b>✅ ᴡᴇ ꜰᴏᴜɴᴅ ɪᴛ 😌❤️ \n\n🎬 Film/Series : {search} \n\n★ ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ ғᴏʀ ɢᴇᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ᴏʀ sᴇʀɪᴇs ғɪʟᴇs \n\n©️ ɪɴғɪɴɪᴛʏ ʙᴏᴛs ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>"
+    else:
+        cap = f"<b>✅ ᴡᴇ ꜰᴏᴜɴᴅ ɪᴛ 😌❤️ \n\n🎬 Film/Series : {search} \n\n★ ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ ғᴏʀ ɢᴇᴛ ʏᴏᴜʀ ᴍᴏᴠɪᴇ ᴏʀ sᴇʀɪᴇs ғɪʟᴇs \n\n©️ ɪɴғɪɴɪᴛʏ ʙᴏᴛs ‌‌‌‌‎ ­  ­  ­  ­  ­  </b>"
+    if imdb and imdb.get('poster'):
+        try:
+            hehe = await message.reply_photo(photo=random.choice(PHO), caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(600)
+            await message.delete()
+    else:
+        fuk = await message.reply_photo(photo=random.choice(PHO), caption=cap, reply_to_message_id=reply_id, reply_markup=InlineKeyboardMarkup(btn))
         await asyncio.sleep(600)
-        await msg.delete(600)
+        await msg.delete()
     if spoll:
-        await msg.message.delete(600)
+        await msg.message.delete()
 
 
 async def advantage_spell_chok(msg):
